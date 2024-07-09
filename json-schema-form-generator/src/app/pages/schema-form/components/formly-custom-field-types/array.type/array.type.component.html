@@ -1,0 +1,21 @@
+<div style="margin: 10px 0; padding: 10px; background-color: #f5f5f5;">
+
+  <p *ngIf="props.description">{{ props.description }}</p>
+
+  <button mat-mini-fab extended color="success" type="button" (click)="add()" style="margin: 10px 0;">
+    <mat-icon>add</mat-icon>
+  </button>
+
+  <div *ngFor="let field of field.fieldGroup; let index = index">
+
+    <formly-field [field]="field" style="margin-bottom: 10px;"></formly-field>
+
+    <div *ngIf="field.props.removable !== false" style="margin: 10px 0;">
+      <button mat-mini-fab type="button" (click)="remove(index)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+
+  </div>
+
+</div>

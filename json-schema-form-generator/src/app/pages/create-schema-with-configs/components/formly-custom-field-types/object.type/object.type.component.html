@@ -1,0 +1,21 @@
+<div class="formly-drag-drop"  (cdkDropListDropped)="drop($event)" cdkDropList>
+
+  <h6 *ngIf="props.description">{{ props.description }}</h6>
+
+  <ng-container *ngFor="let f of field.fieldGroup; let index = index">
+
+    <div class="formly-field-container" cdkDrag *ngIf="!f.hide">
+
+      <em>{{index}}.</em>
+
+      <formly-field
+        [field]="f">
+      </formly-field>
+
+      <field-configuration [field]="{field: f, index: index}"></field-configuration>
+
+    </div>
+
+  </ng-container>
+
+</div>

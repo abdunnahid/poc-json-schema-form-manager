@@ -1,0 +1,29 @@
+<header>
+  <div class="file-uploader">
+    <file-upload
+      (fileProcessed)="onFileProcessed($event)">
+    </file-upload>
+
+    <small>
+      <a href="https://www.jsonschemavalidator.net/" target="_blank" rel="noopener noreferrer">Validate your Schema</a>
+    </small>
+  </div>
+</header>
+
+<main *ngIf="fields?.length > 0">
+
+  <div class="form">
+    <form [formGroup]="form">
+
+      <formly-form
+        [form]="form"
+        [fields]="fields"
+        [options]="options">
+      </formly-form>
+
+      <button mat-raised-button (click)="submit()" color="primary" type="button" style="margin: 20px 0 50px;">Save Schema Form</button>
+
+    </form>
+  </div>
+
+</main>

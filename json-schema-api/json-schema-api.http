@@ -1,0 +1,6 @@
+@json_schema_api_HostAddress = http://localhost:5191
+
+GET {{json_schema_api_HostAddress}}
+Accept: application/json
+
+###

@@ -1,0 +1,228 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "description": "Offer acceptance",
+  "type": "object",
+  "properties": {
+    "offerDocument": {
+      "type": "object",
+      "properties": {
+        "digitalSignedOffer": {
+          "description": "Is offer digitally signed",
+          "type": "boolean",
+          "nullable": false
+        },
+        "digitalSignedDocument": {
+          "description": "Digitally signed document",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$schema": "https://json-schema.org/draft/2019-09/schema",
+            "type": "object",
+            "name": "FileType",
+            "properties": {
+              "filename": {
+                "description": "Name of the file with extension",
+                "type": "string",
+                "example": "offer-document.pdf",
+                "nullable": false
+              },
+              "data": {
+                "description": "Base64 encoded content of the attachment",
+                "type": "string",
+                "maxLength": 10485760,
+                "nullable": false
+              },
+              "fingerprint": {
+                "description": "The base64-encoded MD5 hash value of the file binary",
+                "type": "string",
+                "example": "WAHLbX5Pnc0+qYwSonSm/w==",
+                "nullable": false
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "filename",
+              "data",
+              "fingerprint"
+            ]
+          }
+        },
+        "physicalSignedDocument": {
+          "description": "Physically signed document",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$schema": "https://json-schema.org/draft/2019-09/schema",
+            "type": "object",
+            "name": "FileType",
+            "properties": {
+              "filename": {
+                "description": "Name of the file with extension",
+                "type": "string",
+                "example": "offer-document.pdf",
+                "nullable": false
+              },
+              "data": {
+                "description": "Base64 encoded content of the attachment",
+                "type": "string",
+                "maxLength": 10485760,
+                "nullable": false
+              },
+              "fingerprint": {
+                "description": "The base64-encoded MD5 hash value of the file binary",
+                "type": "string",
+                "example": "WAHLbX5Pnc0+qYwSonSm/w==",
+                "nullable": false
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "filename",
+              "data",
+              "fingerprint"
+            ]
+          }
+        }
+      },
+      "if": {
+        "properties": {
+          "digitalSignedOffer": {
+            "const": true
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "digitalSignedDocument"
+        ]
+      },
+      "else": {
+        "required": [
+          "physicalSignedDocument"
+        ]
+      },
+      "required": [
+        "digitalSignedOffer"
+      ]
+    },
+    "offerAttachmentDocument": {
+      "description": "Additional signed or non-signed documents e.g. flyers, product fact sheets, health questionnaire",
+      "type": "object",
+      "properties": {
+        "digitalSignedDocument": {
+          "description": "Digitally signed document",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$schema": "https://json-schema.org/draft/2019-09/schema",
+            "type": "object",
+            "name": "FileType",
+            "properties": {
+              "filename": {
+                "description": "Name of the file with extension",
+                "type": "string",
+                "example": "offer-document.pdf",
+                "nullable": false
+              },
+              "data": {
+                "description": "Base64 encoded content of the attachment",
+                "type": "string",
+                "maxLength": 10485760,
+                "nullable": false
+              },
+              "fingerprint": {
+                "description": "The base64-encoded MD5 hash value of the file binary",
+                "type": "string",
+                "example": "WAHLbX5Pnc0+qYwSonSm/w==",
+                "nullable": false
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "filename",
+              "data",
+              "fingerprint"
+            ]
+          }
+        },
+        "physicalSignedDocument": {
+          "description": "Physically signed document",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$schema": "https://json-schema.org/draft/2019-09/schema",
+            "type": "object",
+            "name": "FileType",
+            "properties": {
+              "filename": {
+                "description": "Name of the file with extension",
+                "type": "string",
+                "example": "offer-document.pdf",
+                "nullable": false
+              },
+              "data": {
+                "description": "Base64 encoded content of the attachment",
+                "type": "string",
+                "maxLength": 10485760,
+                "nullable": false
+              },
+              "fingerprint": {
+                "description": "The base64-encoded MD5 hash value of the file binary",
+                "type": "string",
+                "example": "WAHLbX5Pnc0+qYwSonSm/w==",
+                "nullable": false
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "filename",
+              "data",
+              "fingerprint"
+            ]
+          }
+        },
+        "otherAttachments": {
+          "description": "List of non signed attachments",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$schema": "https://json-schema.org/draft/2019-09/schema",
+            "type": "object",
+            "name": "FileType",
+            "properties": {
+              "filename": {
+                "description": "Name of the file with extension",
+                "type": "string",
+                "example": "offer-document.pdf",
+                "nullable": false
+              },
+              "data": {
+                "description": "Base64 encoded content of the attachment",
+                "type": "string",
+                "maxLength": 10485760,
+                "nullable": false
+              },
+              "fingerprint": {
+                "description": "The base64-encoded MD5 hash value of the file binary",
+                "type": "string",
+                "example": "WAHLbX5Pnc0+qYwSonSm/w==",
+                "nullable": false
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "filename",
+              "data",
+              "fingerprint"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "offerDocument"
+  ],
+  "additionalProperties": false,
+  "nullable": false
+}

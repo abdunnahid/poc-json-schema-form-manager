@@ -1,0 +1,80 @@
+.formly-drag-drop {
+  border: solid 1px #ccc;
+  background-color: ghostwhite;
+  border-radius: 4px;
+  overflow: hidden;
+  padding: 10px;
+
+  &.cdk-drop-list-dragging {
+    transition: transform 350ms cubic-bezier(0, 0, 0.2, 1);
+  }
+
+  .formly-field-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 10px;
+
+    padding: 10px;
+    margin: 10px 0;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    border-radius: 4px;
+    background-color: white;
+
+    formly-field {
+      color: rgba(0, 0, 0, 0.87);
+      display: block;
+      flex: 1;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      box-sizing: border-box;
+      cursor: move;
+      font-size: 14px;
+      overflow: auto;
+
+      &:not(.cdk-drag-placeholder) {
+        transition: transform 350ms cubic-bezier(0, 0, 0.2, 1);
+      }
+    }
+  }
+}
+
+
+.cdk-drag-preview {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 10px;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 4px;
+  background-color: white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+  formly-field {
+    color: rgba(0, 0, 0, 0.87);
+    display: block;
+    flex: 1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    cursor: move;
+    font-size: 14px;
+    overflow: auto;
+
+    &:not(.cdk-drag-placeholder) {
+      transition: transform 350ms cubic-bezier(0, 0, 0.2, 1);
+    }
+  }
+}
+
+.cdk-drag-placeholder {
+  opacity: 0;
+}
+
+.cdk-drag-animating {
+  transition: transform 350ms cubic-bezier(0, 0, 0.2, 1);
+}

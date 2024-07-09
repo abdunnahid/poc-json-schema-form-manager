@@ -1,0 +1,18 @@
+<mat-toolbar>
+  <button mat-icon-button [routerLink]="['/']" routerLinkActive="router-link-active" >
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <span>
+    JSON Schema Form Generator
+  </span>
+
+  <span class="spacer"></span>
+
+  <button mat-icon-button [routerLink]="['/config']">
+    <mat-icon>add</mat-icon>
+  </button>
+
+</mat-toolbar>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,21 @@
+<div class="formly-object-field">
+
+  <h6 *ngIf="props.description">{{ props.description }}</h6>
+
+  <ng-container *ngFor="let f of field.fieldGroup; let index = index">
+
+    <div class="formly-field-container" *ngIf="!f.hide">
+
+      <!-- <em>{{index}}.</em> -->
+
+      <formly-field
+        [field]="f">
+      </formly-field>
+
+      <field-configuration [field]="{field: f, index: index}"></field-configuration>
+
+    </div>
+
+  </ng-container>
+
+</div>

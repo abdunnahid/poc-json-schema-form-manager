@@ -1,0 +1,21 @@
+<header>
+
+</header>
+
+<main *ngIf="fields?.length > 0">
+
+  <div class="form">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+      <formly-form
+        [form]="form"
+        [fields]="fields"
+        [options]="options">
+      </formly-form>
+
+      <button mat-raised-button color="primary" type="submit" style="margin: 20px 0 50px;">Submit</button>
+
+    </form>
+  </div>
+
+</main>

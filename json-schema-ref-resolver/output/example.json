@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "https://example.com/person.schema.json",
+  "title": "Person",
+  "description": "A person object with various properties.",
+  "type": "object",
+  "properties": {
+    "firstName": {
+      "type": "string",
+      "description": "The person's first name.",
+      "minLength": 1,
+      "maxLength": 50
+    },
+    "lastName": {
+      "type": "string",
+      "description": "The person's last name.",
+      "maxLength": 50
+    },
+    "age": {
+      "type": "integer",
+      "description": "Age in years which must be between 0 and 150.",
+      "minimum": 0,
+      "maximum": 150
+    },
+    "email": {
+      "type": "string",
+      "description": "Email address.",
+      "format": "email"
+    },
+    "phone": {
+      "type": "string",
+      "description": "Phone number.",
+      "pattern": "^\\+?[1-9]\\d{1,14}$"
+    },
+    "address": {
+      "type": "object",
+      "description": "Residential address.",
+      "properties": {
+        "streetAddress": {
+          "type": "string",
+          "description": "Street address.",
+          "minLength": 1
+        },
+        "city": {
+          "type": "string",
+          "description": "City name.",
+          "minLength": 1
+        },
+        "state": {
+          "type": "string",
+          "description": "State name.",
+          "maxLength": 20
+        },
+        "postalCode": {
+          "type": "string",
+          "description": "Postal code.",
+          "pattern": "^\\d{5}(-\\d{4})?$"
+        }
+      },
+      "required": [
+        "streetAddress",
+        "city",
+        "state",
+        "postalCode"
+      ]
+    },
+    "isEmployed": {
+      "type": "boolean",
+      "description": "Employment status."
+    },
+    "employmentDetails": {
+      "type": "object",
+      "properties": {
+        "employer": {
+          "type": "string"
+        },
+        "position": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "employer",
+        "position"
+      ]
+    },
+    "dependents": {
+      "type": "array",
+      "description": "List of dependents.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "age": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "name",
+          "age"
+        ]
+      }
+    },
+    "gender": {
+      "type": "string",
+      "description": "Gender of the person.",
+      "enum": [
+        "Male",
+        "Female",
+        "Other"
+      ]
+    }
+  },
+  "required": [
+    "firstName",
+    "lastName",
+    "age",
+    "email",
+    "address"
+  ],
+  "if": {
+    "properties": {
+      "isEmployed": {
+        "const": true
+      }
+    }
+  },
+  "then": {
+    "required": [
+      "employmentDetails"
+    ]
+  },
+  "else": {
+    "properties": {
+      "employmentDetails": {
+        "type": "null"
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+
+<header>
+  <!-- <div mat-subheader>Configured Schema List</div> -->
+</header>
+
+<main>
+
+  <mat-list>
+    <div mat-subheader>Configured Schema List</div>
+
+    <mat-divider></mat-divider>
+    @for (schema of schemaList; track schema) {
+      <mat-list-item [routerLink]="[schema.id]" matRipple style="cursor: pointer;">
+        <mat-icon matListItemIcon>🗒️</mat-icon>
+        <div matListItemTitle>{{schema.schema.description}}</div>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+    }
+  </mat-list>
+
+</main>

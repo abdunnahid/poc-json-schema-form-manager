@@ -1,0 +1,41 @@
+<button mat-icon-button type="button" class="configure-button" (click)="configureField()">
+  <mat-icon>settings</mat-icon>
+</button>
+
+<ng-template>
+
+  <h2 mat-dialog-title>Configure {{field?.key}}</h2>
+
+  <mat-dialog-content class="mat-typography">
+
+    <p *ngIf="field?.props?.description" style="margin: 0 0 30px; font-size: 16px; color: #5d5d5d;">
+      {{field?.props?.description}}
+    </p>
+
+    <form [formGroup]="fieldConfig">
+
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+
+        <mat-checkbox formControlName="autoPopulate">Auto Populate</mat-checkbox>
+
+        <mat-form-field>
+          <mat-label>Choose auto population field</mat-label>
+          <mat-select formControlName="autoPopulateField">
+            <mat-option value="customerName">Customer Name</mat-option>
+            <mat-option value="customerPhone">Customer Phone</mat-option>
+          </mat-select>
+          <mat-hint>This field will be automatically populated from the previously saved information.</mat-hint>
+        </mat-form-field>
+
+      </div>
+
+    </form>
+
+  </mat-dialog-content>
+
+  <mat-dialog-actions>
+    <button mat-button mat-dialog-close type="button">Close</button>
+    <button mat-flat-button mat-dialog-close type="button" (click)="submit()">Save</button>
+  </mat-dialog-actions>
+
+</ng-template>

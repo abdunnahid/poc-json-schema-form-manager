@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+// Common Styles
+header {
+  margin: 60px auto 4%;
+  width: 90%;
+  max-width: 900px;
+}
+
+main {
+  margin: 0 auto;
+  width: 90%;
+  max-width: 900px;
+  background-color: #f5f5f5;
+}
