@@ -25,7 +25,6 @@ Framework:
 - Angular Material v18.0
 
 Libraries Used:
-
 - @ngx-formly/core
 - @ngx-formly/material
 

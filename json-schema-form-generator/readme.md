@@ -1,7 +1,6 @@
 # JsonSchemaFormGenerator
 
 Libraries Used:
-
 - @ngx-formly/core
 - @ngx-formly/material
 
