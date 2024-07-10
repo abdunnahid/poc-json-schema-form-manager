@@ -17,16 +17,16 @@ public class CustomValidator
 
             JToken value = GetPropertyValue(data, keys);
 
-            if (value == null)
-            {
-                errors.Add(new CustomValidationError
-                {
-                    ErrorType = "CustomValidationError",
-                    Property = propertyPath,
-                    ErrorMessage = "Property not found."
-                });
-                continue;
-            }
+            // if (value == null)
+            // {
+            //     errors.Add(new CustomValidationError
+            //     {
+            //         ErrorType = "CustomValidationError",
+            //         Property = propertyPath,
+            //         ErrorMessage = "Property not found."
+            //     });
+            //     continue;
+            // }
 
             var validationConfig = property.Value.ToObject<Dictionary<string, object>>();
 
